@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AA3F4F31D68B1D700FB341C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */; };
+		4AA3F4F51D68B1D700FB341C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F41D68B1D700FB341C /* ViewController.swift */; };
+		4AA3F4F81D68B1D800FB341C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F61D68B1D700FB341C /* Main.storyboard */; };
+		4AA3F4FB1D68B1D800FB341C /* Mutabaah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F91D68B1D800FB341C /* Mutabaah.xcdatamodeld */; };
+		4AA3F4FD1D68B1D800FB341C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */; };
+		4AA3F5001D68B1D800FB341C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4FE1D68B1D800FB341C /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4AA3F4EF1D68B1D700FB341C /* Mutabaah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mutabaah.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AA3F4F41D68B1D700FB341C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AA3F4F71D68B1D700FB341C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AA3F4FA1D68B1D800FB341C /* Mutabaah.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mutabaah.xcdatamodel; sourceTree = "<group>"; };
+		4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AA3F4FF1D68B1D800FB341C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AA3F5011D68B1D800FB341C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AA3F4EC1D68B1D700FB341C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AA3F4E61D68B1D700FB341C = {
+			isa = PBXGroup;
+			children = (
+				4AA3F4F11D68B1D700FB341C /* Mutabaah */,
+				4AA3F4F01D68B1D700FB341C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AA3F4F01D68B1D700FB341C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AA3F4EF1D68B1D700FB341C /* Mutabaah.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AA3F4F11D68B1D700FB341C /* Mutabaah */ = {
+			isa = PBXGroup;
+			children = (
+				4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */,
+				4AA3F4F41D68B1D700FB341C /* ViewController.swift */,
+				4AA3F4F61D68B1D700FB341C /* Main.storyboard */,
+				4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */,
+				4AA3F4FE1D68B1D800FB341C /* LaunchScreen.storyboard */,
+				4AA3F5011D68B1D800FB341C /* Info.plist */,
+				4AA3F4F91D68B1D800FB341C /* Mutabaah.xcdatamodeld */,
+			);
+			path = Mutabaah;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AA3F4EE1D68B1D700FB341C /* Mutabaah */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AA3F5041D68B1D800FB341C /* Build configuration list for PBXNativeTarget "Mutabaah" */;
+			buildPhases = (
+				4AA3F4EB1D68B1D700FB341C /* Sources */,
+				4AA3F4EC1D68B1D700FB341C /* Frameworks */,
+				4AA3F4ED1D68B1D700FB341C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mutabaah;
+			productName = Mutabaah;
+			productReference = 4AA3F4EF1D68B1D700FB341C /* Mutabaah.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AA3F4E71D68B1D700FB341C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = DuldulStudio;
+				TargetAttributes = {
+					4AA3F4EE1D68B1D700FB341C = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 4AA3F4EA1D68B1D700FB341C /* Build configuration list for PBXProject "Mutabaah" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AA3F4E61D68B1D700FB341C;
+			productRefGroup = 4AA3F4F01D68B1D700FB341C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AA3F4EE1D68B1D700FB341C /* Mutabaah */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AA3F4ED1D68B1D700FB341C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA3F5001D68B1D800FB341C /* LaunchScreen.storyboard in Resources */,
+				4AA3F4FD1D68B1D800FB341C /* Assets.xcassets in Resources */,
+				4AA3F4F81D68B1D800FB341C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AA3F4EB1D68B1D700FB341C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA3F4F51D68B1D700FB341C /* ViewController.swift in Sources */,
+				4AA3F4FB1D68B1D800FB341C /* Mutabaah.xcdatamodeld in Sources */,
+				4AA3F4F31D68B1D700FB341C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AA3F4F61D68B1D700FB341C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA3F4F71D68B1D700FB341C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4AA3F4FE1D68B1D800FB341C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA3F4FF1D68B1D800FB341C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AA3F5021D68B1D800FB341C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AA3F5031D68B1D800FB341C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AA3F5051D68B1D800FB341C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mutabaah/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.duldul.Mutabaah;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4AA3F5061D68B1D800FB341C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Mutabaah/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.duldul.Mutabaah;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AA3F4EA1D68B1D700FB341C /* Build configuration list for PBXProject "Mutabaah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA3F5021D68B1D800FB341C /* Debug */,
+				4AA3F5031D68B1D800FB341C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AA3F5041D68B1D800FB341C /* Build configuration list for PBXNativeTarget "Mutabaah" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA3F5051D68B1D800FB341C /* Debug */,
+				4AA3F5061D68B1D800FB341C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4AA3F4F91D68B1D800FB341C /* Mutabaah.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4AA3F4FA1D68B1D800FB341C /* Mutabaah.xcdatamodel */,
+			);
+			currentVersion = 4AA3F4FA1D68B1D800FB341C /* Mutabaah.xcdatamodel */;
+			path = Mutabaah.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4AA3F4E71D68B1D700FB341C /* Project object */;
+}
