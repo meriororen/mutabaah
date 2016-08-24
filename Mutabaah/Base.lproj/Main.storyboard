@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mutabaah" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,363 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZb-wL-1Ng">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="WQ">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="235" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="WQchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ayt-nq-fYq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA1-ws-Lcu">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SD">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="303" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SDchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MJ1-Xr-JyA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e39-qt-g0s">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="PS">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="233" y="303" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="PSchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eed-pm-yHi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJQ-n1-8SQ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Kirim!">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="38" y="380" width="253" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sendData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MuY-Em-9hN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-Hc-sbV">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="37" y="451" width="43" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeDatePrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiS-PT-Ouz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-fD-dt2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="&gt;">
+                                    <color key="titleColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="248" y="451" width="43" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeDateNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9lY-Dz-GTX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT8-tT-BbP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SM">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="233" y="235" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SMchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CrJ-cW-UWN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enT-FY-06O">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ZP">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="233" y="169" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="ZPchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oHl-ZK-YIX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLa-8c-3z3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ZS">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="233" y="101" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="ZSchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DV2-ug-294"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49d-K6-aLl">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SJ">
+                                    <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="101" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SJchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUH-24-RVw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-Ij-Fcp">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.42636506880142133" blue="0.46325604248870578" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SR">
+                                    <color key="titleColor" red="1" green="0.99874594274665196" blue="0.99050390883263484" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="106" y="169" width="58" height="58"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SRchangeCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="64c-LL-cle"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okk-fs-vTj">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="46" y="169" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhD-CX-9px">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="46" y="235" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRB-O6-aG9">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="46" y="301" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffh-PY-rq2">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="46" y="101" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eve-3U-Kxd">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="174" y="171" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE8-tQ-9fR">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="174" y="237" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bG-Rf-iFI">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="174" y="303" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8K-4N-wlz">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="174" y="103" width="42" height="58"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/8/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8u-jj-hVc">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="451" width="162" height="43"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="bZb-wL-1Ng"/>
+                                <exclude reference="bA1-ws-Lcu"/>
+                                <exclude reference="e39-qt-g0s"/>
+                                <exclude reference="IJQ-n1-8SQ"/>
+                                <exclude reference="Wyf-Hc-sbV"/>
+                                <exclude reference="nYL-fD-dt2"/>
+                                <exclude reference="DT8-tT-BbP"/>
+                                <exclude reference="enT-FY-06O"/>
+                                <exclude reference="BLa-8c-3z3"/>
+                                <exclude reference="49d-K6-aLl"/>
+                                <exclude reference="VOq-Ij-Fcp"/>
+                                <exclude reference="okk-fs-vTj"/>
+                                <exclude reference="VhD-CX-9px"/>
+                                <exclude reference="WRB-O6-aG9"/>
+                                <exclude reference="ffh-PY-rq2"/>
+                                <exclude reference="eve-3U-Kxd"/>
+                                <exclude reference="yE8-tQ-9fR"/>
+                                <exclude reference="8bG-Rf-iFI"/>
+                                <exclude reference="G8K-4N-wlz"/>
+                                <exclude reference="b8u-jj-hVc"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="bZb-wL-1Ng"/>
+                                <include reference="bA1-ws-Lcu"/>
+                                <include reference="e39-qt-g0s"/>
+                                <include reference="IJQ-n1-8SQ"/>
+                                <include reference="Wyf-Hc-sbV"/>
+                                <include reference="nYL-fD-dt2"/>
+                                <include reference="DT8-tT-BbP"/>
+                                <include reference="enT-FY-06O"/>
+                                <include reference="BLa-8c-3z3"/>
+                                <include reference="49d-K6-aLl"/>
+                                <include reference="VOq-Ij-Fcp"/>
+                                <include reference="okk-fs-vTj"/>
+                                <include reference="VhD-CX-9px"/>
+                                <include reference="WRB-O6-aG9"/>
+                                <include reference="ffh-PY-rq2"/>
+                                <include reference="eve-3U-Kxd"/>
+                                <include reference="yE8-tQ-9fR"/>
+                                <include reference="8bG-Rf-iFI"/>
+                                <include reference="G8K-4N-wlz"/>
+                                <include reference="b8u-jj-hVc"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="DateLabel" destination="b8u-jj-hVc" id="rfj-UN-AJl"/>
+                        <outlet property="PSButton" destination="e39-qt-g0s" id="SXZ-Nb-o52"/>
+                        <outlet property="PSCount" destination="8bG-Rf-iFI" id="tLk-7H-4gk"/>
+                        <outlet property="SDButton" destination="bA1-ws-Lcu" id="se9-yH-644"/>
+                        <outlet property="SDCount" destination="WRB-O6-aG9" id="dqm-lb-QAq"/>
+                        <outlet property="SJButton" destination="49d-K6-aLl" id="GlC-IF-B9y"/>
+                        <outlet property="SJCount" destination="ffh-PY-rq2" id="6bw-dh-pbA"/>
+                        <outlet property="SMButton" destination="DT8-tT-BbP" id="AQK-qL-vSs"/>
+                        <outlet property="SMCount" destination="yE8-tQ-9fR" id="4yu-s7-HZi"/>
+                        <outlet property="SRButton" destination="VOq-Ij-Fcp" id="4Gk-4l-om5"/>
+                        <outlet property="SRCount" destination="okk-fs-vTj" id="OId-Ic-3dw"/>
+                        <outlet property="WQButton" destination="bZb-wL-1Ng" id="QHU-A1-vzH"/>
+                        <outlet property="WQCount" destination="VhD-CX-9px" id="gOH-6v-ki1"/>
+                        <outlet property="ZPButton" destination="enT-FY-06O" id="irQ-8R-AXq"/>
+                        <outlet property="ZPCount" destination="eve-3U-Kxd" id="MQc-XF-d7l"/>
+                        <outlet property="ZSButton" destination="BLa-8c-3z3" id="vil-he-60D"/>
+                        <outlet property="ZSCount" destination="G8K-4N-wlz" id="z9e-ww-vdE"/>
+                        <outlet property="nextDateButton" destination="nYL-fD-dt2" id="ZeR-vw-Edh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="277.5" y="312"/>
         </scene>
     </scenes>
 </document>
