@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     let currentDate = NSDate()
     let dateFormatter = NSDateFormatter()
+    var responseData: NSData!
     
     var dateToSend: NSDate!
     
@@ -39,7 +40,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var nextDateButton: UIButton!
     
-    
     func getNextOrPrevDate(day: NSDate, nop: Int) -> NSDate {
         let daysComponents: NSDateComponents = NSDateComponents()
         daysComponents.day = nop
@@ -50,12 +50,11 @@ class ViewController: UIViewController {
         return retDate
     }
     
-    func sendHttpRequest() {
-
+    func sendHttpRequest(update: Int) {
         let dFormat = NSDateFormatter()
         dFormat.dateFormat = "dd_MM_YYYY"
         let dateString = dFormat.stringFromDate(dateToSend)
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/mutabaah.cgi?date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)")!)
         request.HTTPMethod = "GET"
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -63,23 +62,68 @@ class ViewController: UIViewController {
                 print("error=\(error)")
                 return
             }
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+
+            /*
+             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
+             */
+            self.responseData = data!
             
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateCounts()
+            })
         }
         
         task.resume()
     }
     
+    func updateCountLabels() {
+        SJCount.text = String(SJ)
+        SRCount.text = String(SR)
+        WQCount.text = String(WQ)
+        SDCount.text = String(SD)
+        ZSCount.text = String(ZS)
+        ZPCount.text = String(ZP)
+        SMCount.text = String(SM)
+        PSCount.text = String(PS)
+    }
+    
+    func updateCounts() {
+        do {
+        let jsonResult: NSDictionary = try (NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary)!
+            if (jsonResult["status"] as! String == "OK") {
+                SJ = Int(jsonResult["SJ"] as! String)!
+                SR = Int(jsonResult["SR"] as! String)!
+                WQ = Int(jsonResult["WQ"] as! String)!
+                SD = Int(jsonResult["SD"] as! String)!
+                ZS = Int(jsonResult["ZS"] as! String)!
+                ZP = Int(jsonResult["ZP"] as! String)!
+                SM = Int(jsonResult["SM"] as! String)!
+                PS = Int(jsonResult["PS"] as! String)!
+            } else if (jsonResult["status"] as! String == "NA") {
+                SJ = 0
+                SR = 0
+                WQ = 0
+                SD = 0
+                ZS = 0
+                ZP = 0
+                SM = 0
+                PS = 0
+            }
+            updateCountLabels()
+        } catch {
+            print("Error!\n")
+        }
+        
+    }
+    
     @IBAction func changeDatePrev(sender: UIButton) {
         dateToSend = getNextOrPrevDate(dateToSend, nop: -1)
         DateLabel.text = dateFormatter.stringFromDate(dateToSend)
-        nextDateButton.enabled = true
+        nextDateButton.hidden = false
+        sendHttpRequest(0)
     }
     
     @IBAction func changeDateNext(sender: UIButton) {
@@ -87,8 +131,9 @@ class ViewController: UIViewController {
             dateToSend = getNextOrPrevDate(dateToSend, nop: 1)
             DateLabel.text = dateFormatter.stringFromDate(dateToSend)
         } else {
-            nextDateButton.enabled = false
+            nextDateButton.hidden = true
         }
+        sendHttpRequest(0)
     }
     
     @IBAction func SJchangeCounter(sender: UIButton) {
@@ -133,9 +178,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendData(sender: UIButton) {
-        sendHttpRequest()
+        sendHttpRequest(1)
     }
+    @IBOutlet weak var dbglabel: UILabel!
     
+    func pressLong(sender: UILongPressGestureRecognizer) {
+        if (sender.state == .Began) {
+            dbglabel.text = "Began"
+        } else if (sender.state == .Ended) {
+            dbglabel.text = "Ended"
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -143,8 +197,12 @@ class ViewController: UIViewController {
         dateFormatter.dateFormat = "dd/MM/YYYY"
         DateLabel.text = dateFormatter.stringFromDate(currentDate)
         dateToSend = currentDate
-        nextDateButton.adjustsImageWhenDisabled = true
-        nextDateButton.enabled = false
+        nextDateButton.hidden = true
+        
+        for button: UIButton in [SJButton, SRButton, WQButton, SDButton, ZSButton, ZPButton, SMButton, PSButton] {
+            let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.pressLong(_:)))
+            button.addGestureRecognizer(longPress)
+        }
     }
 
     override func didReceiveMemoryWarning() {

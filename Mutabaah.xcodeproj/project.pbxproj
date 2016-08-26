@@ -13,6 +13,7 @@
 		4AA3F4FB1D68B1D800FB341C /* Mutabaah.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F91D68B1D800FB341C /* Mutabaah.xcdatamodeld */; };
 		4AA3F4FD1D68B1D800FB341C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */; };
 		4AA3F5001D68B1D800FB341C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4FE1D68B1D800FB341C /* LaunchScreen.storyboard */; };
+		BAFD7A17D0BF57D97559B5A6 /* Pods_Mutabaah.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85BA53B8DB15F2AB3A7FFEF /* Pods_Mutabaah.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AA3F4FF1D68B1D800FB341C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AA3F5011D68B1D800FB341C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EFFFF6F2FDF9C8D43895A1D /* Pods-Mutabaah.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mutabaah.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mutabaah/Pods-Mutabaah.debug.xcconfig"; sourceTree = "<group>"; };
+		E85BA53B8DB15F2AB3A7FFEF /* Pods_Mutabaah.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mutabaah.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE8AFE263FC7E960A7CC5B7 /* Pods-Mutabaah.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mutabaah.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mutabaah/Pods-Mutabaah.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAFD7A17D0BF57D97559B5A6 /* Pods_Mutabaah.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CCA713FD921416B77ECA33C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E85BA53B8DB15F2AB3A7FFEF /* Pods_Mutabaah.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4AA3F4E61D68B1D700FB341C = {
 			isa = PBXGroup;
 			children = (
 				4AA3F4F11D68B1D700FB341C /* Mutabaah */,
 				4AA3F4F01D68B1D700FB341C /* Products */,
+				CBD9572B2F4DBCDF9CFC4064 /* Pods */,
+				1CCA713FD921416B77ECA33C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = Mutabaah;
 			sourceTree = "<group>";
 		};
+		CBD9572B2F4DBCDF9CFC4064 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EFFFF6F2FDF9C8D43895A1D /* Pods-Mutabaah.debug.xcconfig */,
+				EBE8AFE263FC7E960A7CC5B7 /* Pods-Mutabaah.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AA3F5041D68B1D800FB341C /* Build configuration list for PBXNativeTarget "Mutabaah" */;
 			buildPhases = (
+				62CF5E5413E8B52DBB747C86 /* [CP] Check Pods Manifest.lock */,
 				4AA3F4EB1D68B1D700FB341C /* Sources */,
 				4AA3F4EC1D68B1D700FB341C /* Frameworks */,
 				4AA3F4ED1D68B1D700FB341C /* Resources */,
+				456879D92813FF19829ACD39 /* [CP] Embed Pods Frameworks */,
+				E4762F5333ED240481A7D9D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		456879D92813FF19829ACD39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mutabaah/Pods-Mutabaah-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62CF5E5413E8B52DBB747C86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4762F5333ED240481A7D9D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mutabaah/Pods-Mutabaah-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AA3F4EB1D68B1D700FB341C /* Sources */ = {
@@ -252,12 +327,14 @@
 		};
 		4AA3F5051D68B1D800FB341C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EFFFF6F2FDF9C8D43895A1D /* Pods-Mutabaah.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mutabaah/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.duldul.Mutabaah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -266,12 +343,14 @@
 		};
 		4AA3F5061D68B1D800FB341C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBE8AFE263FC7E960A7CC5B7 /* Pods-Mutabaah.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mutabaah/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.duldul.Mutabaah;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -183,6 +183,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49d-K6-aLl">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.42636506880000002" blue="0.46325604250000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="SJ">
                                     <color key="titleColor" red="1" green="0.99874594269999994" blue="0.99050390880000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -201,6 +202,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-Ij-Fcp">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.42636506880142133" blue="0.46325604248870578" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="SR">
                                     <color key="titleColor" red="1" green="0.99874594274665196" blue="0.99050390883263484" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -297,6 +299,15 @@
                                     <rect key="frame" x="86" y="451" width="162" height="43"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFc-bc-L62">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="33" width="126" height="22"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -322,6 +333,7 @@
                                 <exclude reference="8bG-Rf-iFI"/>
                                 <exclude reference="G8K-4N-wlz"/>
                                 <exclude reference="b8u-jj-hVc"/>
+                                <exclude reference="lFc-bc-L62"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -346,6 +358,7 @@
                                 <include reference="8bG-Rf-iFI"/>
                                 <include reference="G8K-4N-wlz"/>
                                 <include reference="b8u-jj-hVc"/>
+                                <include reference="lFc-bc-L62"/>
                             </mask>
                         </variation>
                     </view>
@@ -367,6 +380,7 @@
                         <outlet property="ZPCount" destination="eve-3U-Kxd" id="MQc-XF-d7l"/>
                         <outlet property="ZSButton" destination="BLa-8c-3z3" id="vil-he-60D"/>
                         <outlet property="ZSCount" destination="G8K-4N-wlz" id="z9e-ww-vdE"/>
+                        <outlet property="dbglabel" destination="lFc-bc-L62" id="WEt-Qt-Ul6"/>
                         <outlet property="nextDateButton" destination="nYL-fD-dt2" id="ZeR-vw-Edh"/>
                     </connections>
                 </viewController>
