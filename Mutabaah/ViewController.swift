@@ -184,9 +184,19 @@ class ViewController: UIViewController {
     
     func pressLong(sender: UILongPressGestureRecognizer) {
         if (sender.state == .Began) {
-            dbglabel.text = "Began"
+            //dbglabel.text = "Began"
+            let gvc = GraphViewController(nibName: "GraphViewController", bundle: nil)
+            self.presentViewController(gvc, animated: true, completion: nil)
         } else if (sender.state == .Ended) {
-            dbglabel.text = "Ended"
+            
+            //dbglabel.text = "Ended"
+        }
+        
+        switch (sender.view as! UIButton) {
+        case SJButton:
+            print("OK")
+        default:
+            print("default")
         }
         
     }
@@ -203,6 +213,8 @@ class ViewController: UIViewController {
             let longPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.pressLong(_:)))
             button.addGestureRecognizer(longPress)
         }
+        
+        sendHttpRequest(0)
     }
 
     override func didReceiveMemoryWarning() {

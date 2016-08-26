@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A69DA8F1D70530100720CB8 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A69DA8D1D70530100720CB8 /* GraphViewController.swift */; };
+		4A69DA901D70530100720CB8 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A69DA8E1D70530100720CB8 /* GraphViewController.xib */; };
 		4AA3F4F31D68B1D700FB341C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */; };
 		4AA3F4F51D68B1D700FB341C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F41D68B1D700FB341C /* ViewController.swift */; };
 		4AA3F4F81D68B1D800FB341C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA3F4F61D68B1D700FB341C /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A69DA8D1D70530100720CB8 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphViewController.swift; path = ../GraphViewController.swift; sourceTree = "<group>"; };
+		4A69DA8E1D70530100720CB8 /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GraphViewController.xib; path = ../GraphViewController.xib; sourceTree = "<group>"; };
 		4AA3F4EF1D68B1D700FB341C /* Mutabaah.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mutabaah.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA3F4F41D68B1D700FB341C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				4AA3F4F21D68B1D700FB341C /* AppDelegate.swift */,
 				4AA3F4F41D68B1D700FB341C /* ViewController.swift */,
 				4AA3F4F61D68B1D700FB341C /* Main.storyboard */,
+				4A69DA8D1D70530100720CB8 /* GraphViewController.swift */,
+				4A69DA8E1D70530100720CB8 /* GraphViewController.xib */,
 				4AA3F4FC1D68B1D800FB341C /* Assets.xcassets */,
 				4AA3F4FE1D68B1D800FB341C /* LaunchScreen.storyboard */,
 				4AA3F5011D68B1D800FB341C /* Info.plist */,
@@ -154,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA3F5001D68B1D800FB341C /* LaunchScreen.storyboard in Resources */,
+				4A69DA901D70530100720CB8 /* GraphViewController.xib in Resources */,
 				4AA3F4FD1D68B1D800FB341C /* Assets.xcassets in Resources */,
 				4AA3F4F81D68B1D800FB341C /* Main.storyboard in Resources */,
 			);
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA3F4F51D68B1D700FB341C /* ViewController.swift in Sources */,
+				4A69DA8F1D70530100720CB8 /* GraphViewController.swift in Sources */,
 				4AA3F4FB1D68B1D800FB341C /* Mutabaah.xcdatamodeld in Sources */,
 				4AA3F4F31D68B1D700FB341C /* AppDelegate.swift in Sources */,
 			);
