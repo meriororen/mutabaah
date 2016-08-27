@@ -15,7 +15,6 @@ class ViewController: UIViewController {
 
     let currentDate = NSDate()
     let dateFormatter = NSDateFormatter()
-    var responseData: NSData!
     
     var dateToSend: NSDate!
     
@@ -40,15 +39,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var nextDateButton: UIButton!
     
-    func getNextOrPrevDate(day: NSDate, nop: Int) -> NSDate {
-        let daysComponents: NSDateComponents = NSDateComponents()
-        daysComponents.day = nop
-        
-        let calendar: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
-        let retDate: NSDate = calendar.dateByAddingComponents(daysComponents, toDate: day, options: NSCalendarOptions(rawValue: 0))!
-        
-        return retDate
-    }
     
     func sendHttpRequest(update: Int) {
         let dFormat = NSDateFormatter()
@@ -63,17 +53,44 @@ class ViewController: UIViewController {
                 return
             }
 
-            /*
-             if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.updateCounts(data!)
+                })
             }
-             */
-            self.responseData = data!
+        }
+        
+        task.resume()
+    }
+    
+    func sendHttpRequestForGraph(dataType: Int, startDate: NSDate, endDate: NSDate) {
+        let dFormat = NSDateFormatter()
+        dFormat.dateFormat = "dd_MM_YYYY"
+        let start = dFormat.stringFromDate(startDate)
+        let end = dFormat.stringFromDate(endDate)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&type=\(dataType)")!)
+        print(request)
+        request.HTTPMethod = "GET"
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            guard error == nil && data != nil else {
+                print("error=\(error)")
+                return
+            }
             
-            dispatch_async(dispatch_get_main_queue(), {
-                self.updateCounts()
-            })
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            } else {
+                print("graphok")
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.dispatchGraphView(data!)
+                })
+            }
         }
         
         task.resume()
@@ -90,9 +107,9 @@ class ViewController: UIViewController {
         PSCount.text = String(PS)
     }
     
-    func updateCounts() {
+    func updateCounts(data: NSData) {
         do {
-        let jsonResult: NSDictionary = try (NSJSONSerialization.JSONObjectWithData(responseData!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary)!
+        let jsonResult: NSDictionary = try (NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary)!
             if (jsonResult["status"] as! String == "OK") {
                 SJ = Int(jsonResult["SJ"] as! String)!
                 SR = Int(jsonResult["SR"] as! String)!
@@ -103,20 +120,25 @@ class ViewController: UIViewController {
                 SM = Int(jsonResult["SM"] as! String)!
                 PS = Int(jsonResult["PS"] as! String)!
             } else if (jsonResult["status"] as! String == "NA") {
-                SJ = 0
-                SR = 0
-                WQ = 0
-                SD = 0
-                ZS = 0
-                ZP = 0
-                SM = 0
-                PS = 0
+                SJ = 0; SR = 0; WQ = 0
+                SD = 0; ZS = 0; ZP = 0
+                SM = 0; PS = 0
             }
             updateCountLabels()
         } catch {
             print("Error!\n")
         }
         
+    }
+    
+    func getNextOrPrevDate(day: NSDate, nop: Int) -> NSDate {
+        let daysComponents: NSDateComponents = NSDateComponents()
+        daysComponents.day = nop
+        
+        let calendar: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
+        let retDate: NSDate = calendar.dateByAddingComponents(daysComponents, toDate: day, options: NSCalendarOptions(rawValue: 0))!
+        
+        return retDate
     }
     
     @IBAction func changeDatePrev(sender: UIButton) {
@@ -182,24 +204,44 @@ class ViewController: UIViewController {
     }
     @IBOutlet weak var dbglabel: UILabel!
     
+    
+    func dispatchGraphView(graphData: NSData) {
+        print("start!")
+        do {
+            let jsonResult: NSDictionary = try (NSJSONSerialization.JSONObjectWithData(graphData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary)!
+            
+            if (jsonResult["status"] as! String == "OK") {
+                let gvc = GraphViewController(data: jsonResult, start:self.getNextOrPrevDate(currentDate, nop: -6), end:currentDate)
+                print("go!")
+                self.presentViewController(gvc, animated: true, completion: nil)
+            } else {
+                print("wat")
+            }
+        } catch {
+            print("Error processing graph data")
+        }
+    }
+    
     func pressLong(sender: UILongPressGestureRecognizer) {
         if (sender.state == .Began) {
             //dbglabel.text = "Began"
-            let gvc = GraphViewController(nibName: "GraphViewController", bundle: nil)
-            self.presentViewController(gvc, animated: true, completion: nil)
-        } else if (sender.state == .Ended) {
-            
-            //dbglabel.text = "Ended"
+            let start = getNextOrPrevDate(currentDate, nop: -6)
+            let end = currentDate
+            switch (sender.view as! UIButton) {
+            case SJButton: sendHttpRequestForGraph(0, startDate: start, endDate: end)
+            case SRButton: sendHttpRequestForGraph(1, startDate: start, endDate: end)
+            case WQButton: sendHttpRequestForGraph(2, startDate: start, endDate: end)
+            case SDButton: sendHttpRequestForGraph(3, startDate: start, endDate: end)
+            case ZSButton: sendHttpRequestForGraph(4, startDate: start, endDate: end)
+            case ZPButton: sendHttpRequestForGraph(5, startDate: start, endDate: end)
+            case SMButton: sendHttpRequestForGraph(6, startDate: start, endDate: end)
+            case PSButton: sendHttpRequestForGraph(7, startDate: start, endDate: end)
+            default:
+                print("error no such thing")
+            }
         }
-        
-        switch (sender.view as! UIButton) {
-        case SJButton:
-            print("OK")
-        default:
-            print("default")
-        }
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
