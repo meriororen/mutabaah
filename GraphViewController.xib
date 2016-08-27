@@ -18,74 +18,34 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AO-Zq-AiX" customClass="BarChartView" customModule="Charts">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGp-zZ-jku">
-                            <rect key="frame" x="243" y="249" width="87" height="48"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
-                            <state key="normal" title="Back"/>
-                            <connections>
-                                <action selector="backButtonPressed" destination="-1" eventType="touchUpInside" id="9iY-9C-MqG"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="kGp-zZ-jku" secondAttribute="trailing" constant="106" id="3VG-Nw-UJg"/>
-                        <constraint firstItem="kGp-zZ-jku" firstAttribute="top" secondItem="8AO-Zq-AiX" secondAttribute="top" constant="488" id="7Wx-Fs-Erb"/>
-                        <constraint firstAttribute="bottom" secondItem="kGp-zZ-jku" secondAttribute="bottom" constant="64" id="EGn-ry-1yB"/>
-                        <constraint firstItem="kGp-zZ-jku" firstAttribute="leading" secondItem="8AO-Zq-AiX" secondAttribute="leading" constant="114" id="tFX-Rn-z9e"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="kGp-zZ-jku"/>
-                        </mask>
-                        <mask key="constraints">
-                            <exclude reference="3VG-Nw-UJg"/>
-                            <exclude reference="7Wx-Fs-Erb"/>
-                            <exclude reference="EGn-ry-1yB"/>
-                            <exclude reference="tFX-Rn-z9e"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="kGp-zZ-jku"/>
-                        </mask>
-                        <mask key="constraints">
-                            <include reference="3VG-Nw-UJg"/>
-                            <include reference="7Wx-Fs-Erb"/>
-                            <include reference="EGn-ry-1yB"/>
-                            <include reference="tFX-Rn-z9e"/>
-                        </mask>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="25" width="317" height="439"/>
                     </variation>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGp-zZ-jku">
+                    <rect key="frame" x="243" y="249" width="87" height="48"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                    <state key="normal" title="Back"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="68" y="487" width="180" height="48"/>
+                    </variation>
+                    <connections>
+                        <action selector="backButtonPressed" destination="-1" eventType="touchUpInside" id="9iY-9C-MqG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="8AO-Zq-AiX" secondAttribute="bottom" id="BVn-mW-h1H"/>
-                <constraint firstItem="8AO-Zq-AiX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C3U-vk-F1C"/>
-                <constraint firstItem="8AO-Zq-AiX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gwz-Pi-6Bk"/>
-                <constraint firstAttribute="trailing" secondItem="8AO-Zq-AiX" secondAttribute="trailing" id="jwS-uB-wlk"/>
-            </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="8AO-Zq-AiX"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="BVn-mW-h1H"/>
-                    <exclude reference="C3U-vk-F1C"/>
-                    <exclude reference="gwz-Pi-6Bk"/>
-                    <exclude reference="jwS-uB-wlk"/>
+                    <exclude reference="kGp-zZ-jku"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="8AO-Zq-AiX"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="BVn-mW-h1H"/>
-                    <include reference="C3U-vk-F1C"/>
-                    <include reference="gwz-Pi-6Bk"/>
-                    <include reference="jwS-uB-wlk"/>
+                    <include reference="kGp-zZ-jku"/>
                 </mask>
             </variation>
         </view>

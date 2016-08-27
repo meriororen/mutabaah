@@ -72,8 +72,8 @@ class ViewController: UIViewController {
         dFormat.dateFormat = "dd_MM_YYYY"
         let start = dFormat.stringFromDate(startDate)
         let end = dFormat.stringFromDate(endDate)
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&type=\(dataType)")!)
-        print(request)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!)
+        //print(request)
         request.HTTPMethod = "GET"
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             } else {
-                print("graphok")
+                //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
                 dispatch_async(dispatch_get_main_queue(), {
                     self.dispatchGraphView(data!)
                 })
@@ -206,13 +206,13 @@ class ViewController: UIViewController {
     
     
     func dispatchGraphView(graphData: NSData) {
-        print("start!")
+       // print("start!")
         do {
             let jsonResult: NSDictionary = try (NSJSONSerialization.JSONObjectWithData(graphData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary)!
             
             if (jsonResult["status"] as! String == "OK") {
                 let gvc = GraphViewController(data: jsonResult, start:self.getNextOrPrevDate(currentDate, nop: -6), end:currentDate)
-                print("go!")
+         //       print("go!")
                 self.presentViewController(gvc, animated: true, completion: nil)
             } else {
                 print("wat")
