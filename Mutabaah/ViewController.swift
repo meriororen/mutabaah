@@ -42,16 +42,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var nextDateButton: UIButton!
     
+    @IBOutlet weak var sendButton: UIButton!
+    
+    let asparagusColor = UIColor.init(colorLiteralRed: 135.0, green: 169.0, blue: 107.0, alpha: 1.0)
     
     func sendHttpRequest(update: Int) {
         let dFormat = NSDateFormatter()
         dFormat.dateFormat = "dd_MM_YYYY"
         let dateString = dFormat.stringFromDate(dateToSend)
-        let url = NSURL(string: "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)")!
+        let urlstr = "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)"
+        let url = NSURL(string: urlstr)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
+        
+        if (update > 0) {
+            sharedCache.remove(key: urlstr)
+        }
+    
         sharedCache.fetch(URL: url).onSuccess { JSON in
             dispatch_async(dispatch_get_main_queue(), {
+                if (!self.sendButton.enabled) { self.sendButton.enabled = true; self.sendButton.backgroundColor = UIColor.redColor() }
                 self.updateCounts(JSON.asData())
             })
         }
@@ -174,9 +184,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendData(sender: UIButton) {
+        sendButton.backgroundColor = UIColor.grayColor()
+        sendButton.enabled = false
+        sendButton.setTitle("Sedang Mengirim..", forState: UIControlState.Disabled)
         sendHttpRequest(1)
     }
-    @IBOutlet weak var dbglabel: UILabel!
     
     
     func dispatchGraphView(graphData: NSData) {
