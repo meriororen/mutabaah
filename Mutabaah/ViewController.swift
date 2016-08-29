@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Haneke
 
 class ViewController: UIViewController {
     
     var SJ = 0, SR = 0, WQ = 0, SD = 0,
         ZS = 0, ZP = 0, SM = 0, PS = 0
 
+    let sharedCache = Shared.JSONCache
+    
     let currentDate = NSDate()
     let dateFormatter = NSDateFormatter()
     
@@ -44,27 +47,14 @@ class ViewController: UIViewController {
         let dFormat = NSDateFormatter()
         dFormat.dateFormat = "dd_MM_YYYY"
         let dateString = dFormat.stringFromDate(dateToSend)
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)")!)
+        let url = NSURL(string: "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)")!
+        let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            guard error == nil && data != nil else {
-                print("error=\(error)")
-                return
-            }
-
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            } else {
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.updateCounts(data!)
-                })
-            }
+        sharedCache.fetch(URL: url).onSuccess { JSON in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.updateCounts(JSON.asData())
+            })
         }
-        
-        task.resume()
     }
     
     func sendHttpRequestForGraph(dataType: Int, startDate: NSDate, endDate: NSDate) {
@@ -72,28 +62,12 @@ class ViewController: UIViewController {
         dFormat.dateFormat = "dd_MM_YYYY"
         let start = dFormat.stringFromDate(startDate)
         let end = dFormat.stringFromDate(endDate)
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!)
-        //print(request)
-        request.HTTPMethod = "GET"
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            guard error == nil && data != nil else {
-                print("error=\(error)")
-                return
-            }
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            } else {
-                //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.dispatchGraphView(data!)
-                })
-            }
+        let url = NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!
+        sharedCache.fetch(URL: url).onSuccess { JSON in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.dispatchGraphView(JSON.asData())
+            })
         }
-        
-        task.resume()
     }
     
     func updateCountLabels() {
