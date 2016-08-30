@@ -50,21 +50,59 @@ class ViewController: UIViewController {
         let dFormat = NSDateFormatter()
         dFormat.dateFormat = "dd_MM_YYYY"
         let dateString = dFormat.stringFromDate(dateToSend)
-        let urlstr = "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)&SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)"
-        let url = NSURL(string: urlstr)!
+        let dataString = "SJ=\(SJ)&SR=\(SR)&WQ=\(WQ)&SD=\(SD)&ZS=\(ZS)&ZP=\(ZP)&SM=\(SM)&PS=\(PS)"
+        let urlstr = "http://blaku.tk/cgi-bin/mutabaah.cgi?user=test&update=\(update)&date=\(dateString)"
+        let url = NSURL(string: urlstr+"&"+dataString)!
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         
-        if (update > 0) {
-            sharedCache.remove(key: urlstr)
+        let fix_button: () -> () = {
+            if (!self.sendButton.enabled) { self.sendButton.enabled = true; self.sendButton.backgroundColor = UIColor.redColor() }
         }
-    
-        sharedCache.fetch(URL: url).onSuccess { JSON in
-            dispatch_async(dispatch_get_main_queue(), {
-                if (!self.sendButton.enabled) { self.sendButton.enabled = true; self.sendButton.backgroundColor = UIColor.redColor() }
+        
+        
+        #if true
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                guard error == nil && data != nil else {
+                    print("error=\(error)")
+                    return
+                }
+                
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.updateCounts(data!)
+                        fix_button()
+                    })
+                }
+            }
+            
+            task.resume()
+        #else
+        let on_success: (JSON) -> () = { JSON in
+            fix_button()
+            self.sharedCache.set(value: JSON, key: urlstr)
+            self.updateCounts(JSON.asData())
+        }
+        
+        let on_failure: (NSError?) -> () = {_ in
+            fix_button()
+        }
+        
+        if (update == 1) {
+            print("updating..")
+            sharedCache.fetchSkipCache(URL: url).onSuccess({ JSON in
+                fix_button()
                 self.updateCounts(JSON.asData())
-            })
+            }).onFailure(on_failure)
+        } else {
+            sharedCache.fetch(URL: NSURL(string: urlstr)!).onSuccess(on_success).onFailure(on_failure)
         }
+        #endif
     }
     
     func sendHttpRequestForGraph(dataType: Int, startDate: NSDate, endDate: NSDate) {
@@ -72,12 +110,35 @@ class ViewController: UIViewController {
         dFormat.dateFormat = "dd_MM_YYYY"
         let start = dFormat.stringFromDate(startDate)
         let end = dFormat.stringFromDate(endDate)
-        let url = NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!
+        #if true
+            let request = NSMutableURLRequest(URL: NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!)
+            //print(request)
+            request.HTTPMethod = "GET"
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                guard error == nil && data != nil else {
+                    print("error=\(error)")
+                    return
+                }
+                
+                if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(response)")
+                } else {
+                    //print(NSString(data: data!, encoding: NSUTF8StringEncoding))
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.dispatchGraphView(data!)
+                    })
+                }
+            }
+            
+            task.resume()
+        #else
+            let url = NSURL(string: "http://blaku.tk/cgi-bin/graph.cgi?user=test&start=\(start)&end=\(end)&data=\(dataType)")!
         sharedCache.fetch(URL: url).onSuccess { JSON in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.dispatchGraphView(JSON.asData())
-            })
+            self.dispatchGraphView(JSON.asData())
         }
+        #endif
     }
     
     func updateCountLabels() {
